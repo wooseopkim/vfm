@@ -32,6 +32,10 @@ export interface StringifyMarkdownOptions {
   disableFormatHtml?: boolean;
   /** Enable math syntax. */
   math?: boolean;
+  plugins?: {
+    postMarkdown?: unified.PluggableList<unified.Settings>;
+    postHtml?: unified.PluggableList<unified.Settings>;
+  };
 }
 
 export interface Hooks {
@@ -91,6 +95,7 @@ export function VFM(
     hardLineBreaks = false,
     disableFormatHtml = false,
     math = true,
+    plugins = {},
   }: StringifyMarkdownOptions = {},
   metadata: Metadata = {},
 ): Processor {
@@ -112,10 +117,13 @@ export function VFM(
     }
   }
 
+  const { postMarkdown, postHtml } = plugins;
   const processor = unified()
     .use(markdown(hardLineBreaks, math))
+    .use(postMarkdown ?? [])
     .data('settings', { position: false })
-    .use(html);
+    .use(html)
+    .use(postHtml ?? []);
 
   if (replace) {
     processor.use(handleReplace, { rules: replace });
