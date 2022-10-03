@@ -1,5 +1,5 @@
 {
-  "name": "@vivliostyle/vfm",
+  "name": "@wooseopkim/vfm",
   "description": "Custom Markdown syntax specialized in book authoring.",
   "version": "1.2.2",
   "author": "Vivliostyle Foundation",
@@ -18,11 +18,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vivliostyle/vfm.git"
+    "url": "https://github.com/wooseopkim/vfm.git"
   },
-  "homepage": "https://github.com/vivliostyle/vfm",
+  "homepage": "https://github.com/wooseopkim/vfm",
   "bugs": {
-    "url": "https://github.com/vivliostyle/vfm/issues"
+    "url": "https://github.com/wooseopkim/vfm/issues"
   },
   "files": [
     "lib"
